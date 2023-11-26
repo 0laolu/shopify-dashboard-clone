@@ -70,22 +70,23 @@
 
 
 
-.notification-wrapper figure {
+.notification-wrapper button {
     background-color: #303030;
     padding: 8px;
     border-radius: 8px;
     max-height: 32px;
     margin-right: 7px;
+    outline: none;
+    border: none;
     /* cursor: pointer; */
 }
 
-.notification-wrapper figure:hover {
+.notification-wrapper button:hover {
     background-color: #616161;
 }
 
-.notification-wrapper figure:focus {
-    background-color: white;
-    /* background-color: #656266; */
+.notification-wrapper button:focus {
+    background-color: #656266;
     box-shadow: 0px 0px 0px 3px #005BD3, 0px 0px 0px 1px #000;
 }
 
@@ -102,6 +103,8 @@
     max-height: 32px;
     min-width: 142px;
     cursor: pointer;
+    border: 0;
+    outline: 0;
 }
 
 .userInfo-wrapper:hover {
@@ -187,6 +190,7 @@
     margin-left: 14px;
     position: relative;
     top: 3px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 640px) {
