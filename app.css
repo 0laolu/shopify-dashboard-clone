@@ -16,10 +16,14 @@
     max-height: 56px;
 }
 
+.company-logo-mobile {
+    display: none;
+}
+
 .search-input-container {
     display: flex;
     align-items: baseline;
-    width: 50%;
+    width: 63%;
     max-width: 480px;
     position: relative;
 }
@@ -108,4 +112,23 @@
     border-radius: 6px;
     font-size: 12px;
     padding: 6.67px 5.34px;
+}
+
+@media screen and (max-width: 767px) {
+    .company-logo-desktop {
+        display: none;
+    }
+
+    .company-logo-mobile {
+        display: block;
+    }
+
+    .userInfo-wrapper {
+        min-width: auto;
+    }
+
+    .userInfo-wrapper p {
+        display: none;
+    }
+
 }
