@@ -21,6 +21,8 @@ setupGuideAccordion.addEventListener("click", function(event) {
 
     if(event.target.className == "setup-guide-label") {
         event.target.parentElement.classList.toggle("active")
+    } else if(event.target.className == "setup-guide-description") {
+        event.target.parentElement.parentElement.classList.toggle("active")
     } else if(event.target.className == "content-description" || event.target.className == "description-header") {
         event.target.parentElement.parentElement.parentElement.classList.toggle("active")
     } else if (event.target.className == "dropdown-icon" || event.target.className == "form-progress") {
