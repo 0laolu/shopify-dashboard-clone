@@ -224,6 +224,7 @@ body {
     padding: 16px;
     padding-right: 10px;
     border-radius: 18px;
+    z-index: 50;
 }
 
 .setup-guide-label .dropdown-icon-container {
