@@ -142,6 +142,7 @@ body {
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 .trial-popup {
@@ -213,7 +214,6 @@ body {
     border: 1px solid #DBDBDB;
     border-radius: 18px;
     box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
 }
 
 .setup-guide-label {
@@ -225,7 +225,6 @@ body {
     padding: 16px;
     padding-right: 10px;
     border-radius: 18px;
-    z-index: 50;
 }
 
 .setup-guide-label .dropdown-icon-container {
@@ -308,7 +307,7 @@ body {
     height: 0;
     overflow: hidden;
     overflow-y: auto;
-    transition: 0.5s;
+    transition: 0.05s ease-out;
 }
 
 .setup-guide-list-wrapper.active .setup-guide-content {
