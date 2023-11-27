@@ -6,6 +6,10 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+body {
+    background-color: #F1F1F1;
+}
+
 .header {
     background-color: #1A1A1A;
 }
@@ -137,8 +141,7 @@
 .page-content-wrapper {
     width: 90%;
     max-width: 800px;
-    margin: 3rem auto;
-    padding-bottom: 32rem;
+    margin: 0 auto;
 }
 
 .trial-popup {
@@ -147,6 +150,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px;
+    margin-top: 28px;
     max-height: 56px;
     min-height: 56px;
     border-radius: 8px;
@@ -179,6 +183,7 @@
 
 .trial-options .plan-btn:hover {
     background-color: #F7F7F7;
+    box-shadow: 0px -1px 0px 0px #B5B5B5 inset;
 }
 
 .trial-options .plan-btn:focus {
@@ -191,6 +196,121 @@
     position: relative;
     top: 3px;
     cursor: pointer;
+}
+
+/* Setup Guide */
+
+.setup-guide-accordion {
+    width: 100%;
+    padding-top: 16px;
+    position: relative;
+}
+
+.setup-guide-list-wrapper {
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+    border: 1px solid #DBDBDB;
+    border-radius: 18px;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+}
+
+.setup-guide-label {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    max-height: 106px;
+    min-height: 106px;
+    padding: 16px;
+    padding-right: 10px;
+    border-radius: 18px;
+}
+
+.setup-guide-label .dropdown-icon-container {
+    background-color: #fff;
+    display: inline-block;
+    width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    border: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.setup-guide-label .dropdown-icon-container:hover {
+    background-color: #F1F1F1;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    
+}
+
+.setup-guide-label .dropdown-icon-container:focus {
+    background-color: #fff;
+    border: 2px solid #005BD3;
+    border-radius: 8px;
+}
+
+.setup-guide-list-wrapper .dropdown-icon-container img {
+    cursor: pointer;
+    transition: 0.5s;
+    transform: none;
+}
+
+.setup-guide-list-wrapper.active .dropdown-icon-container img {
+    transform: rotateX(180deg);
+}
+
+
+.setup-guide-description h3 {
+    color: #303030;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.setup-guide-description p {
+    color: #303030;
+    font-size: 13px;
+    padding: 6px 0 16px 0;
+}
+
+.form-progress {
+    display: flex;
+    align-items: baseline;
+    max-width: 168px;
+}
+
+.form-progress p {
+    color: #303030;
+    font-size: 12px;
+}
+
+.progress-bar-container {
+    background-color: #E3E3E3;
+    width: 72px;
+    height: 4px;
+    border-radius: 28px;
+    margin-left: 8px;
+    position: relative;
+    top: -2px;
+}
+
+.progress-bar {
+    background-color: #1A1A1A;
+    border-radius: 28px;
+    width: 20%;
+    height: 4px;
+}
+
+.setup-guide-list-wrapper .setup-guide-content {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: 0.5s;
+}
+
+.setup-guide-list-wrapper.active .setup-guide-content {
+    height: 150px;
 }
 
 @media screen and (max-width: 640px) {
@@ -219,6 +339,36 @@
     .remove-popup-wrapper img {
         position: absolute;
         right: 10px;
+        top: 18px;
+    }
+
+
+    .setup-guide-list-wrapper {
+        border-radius: 0;
+    }
+
+    .setup-guide-label {
+        max-height: 124px;
+        min-height: 124px;
+    }
+
+    .setup-guide-description p {
+        width: 90%;
+    }
+
+    .setup-guide-label .dropdown-icon-container {
+        width: 28px;
+        min-height: 28px;
+        max-height: 28px;
+    }
+
+    .setup-guide-label .dropdown-icon-container:hover {
+        background-color: #FFF;
+    }
+
+    .setup-guide-list-wrapper .dropdown-icon-container {
+        position: absolute;
+        right: 5px;
         top: 18px;
     }
 }
