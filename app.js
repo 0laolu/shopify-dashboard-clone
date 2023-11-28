@@ -15,7 +15,7 @@ const setupGuideAccordion = document.querySelector(".setup-guide-list-wrapper")
 console.log(setupGuideAccordion)
 
 setupGuideAccordion.addEventListener("click", function(event) {
-    console.log(event.target)
+    // console.log(event.)
 
     // improving ux by displaying dropdown when any element is clicked
 
@@ -33,5 +33,45 @@ setupGuideAccordion.addEventListener("click", function(event) {
         event.target.parentElement.parentElement.parentElement.parentElement.parentElement.classList.toggle("active")
     } else if (event.target.className == "progress-bar") {
         event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.toggle("active")
+    }
+})
+
+
+// checking and unchecking the checkbox
+
+const emptyCheckbox = document.querySelector(".checkbox.empty")
+// const checkboxLoader = document.querySelector(".chekbox-loader")
+const checkedCheckbox = document.querySelector(".checkbox.checked")
+const checkboxLoader = document.createElement("img")
+console.log(emptyCheckbox)
+console.log(checkedCheckbox)
+
+checkboxLoader.src = "./images/checkbox-loader.svg"
+checkboxLoader.classList.add("checkbox-loader")
+checkboxLoader.alt = "checkbox loader"
+
+console.log(checkboxLoader)
+
+emptyCheckbox.addEventListener("click", function(event) {
+    // console.log(event.target)
+    if(event.target.className == "checkbox empty") {
+        emptyCheckbox.style.display = "none"
+        checkboxLoader.classList.add("active")
+        emptyCheckbox.parentElement.appendChild(checkboxLoader)
+
+        setTimeout(function () {
+            // Remove the loader image and show the checked checkbox
+            checkboxLoader.remove();
+            event.target.nextElementSibling.classList.add("active")
+        }, 500);
+        
+    }
+})
+
+checkedCheckbox.addEventListener("click", function(event) {
+    console.log(event)
+    if(event.target.className == "checkbox checked active") {
+        event.target.classList.remove("active")
+        emptyCheckbox.style.display = "block"
     }
 })
