@@ -14,6 +14,8 @@ removeBtn.addEventListener("click", function() {
 const setupGuideAccordion = document.querySelector(".setup-guide-list-wrapper")
 console.log(setupGuideAccordion)
 
+const firstListAccordion = document.querySelectorAll(".setup-guide-content")
+
 setupGuideAccordion.addEventListener("click", function(event) {
     // console.log(event.)
 
@@ -39,39 +41,81 @@ setupGuideAccordion.addEventListener("click", function(event) {
 
 // checking and unchecking the checkbox
 
-const emptyCheckbox = document.querySelector(".checkbox.empty")
-// const checkboxLoader = document.querySelector(".chekbox-loader")
-const checkedCheckbox = document.querySelector(".checkbox.checked")
+const emptyCheckboxes = document.querySelectorAll(".checkbox.empty")
+
+const checkedCheckboxes = document.querySelectorAll(".checkbox.checked")
 const checkboxLoader = document.createElement("img")
-console.log(emptyCheckbox)
-console.log(checkedCheckbox)
 
 checkboxLoader.src = "./images/checkbox-loader.svg"
 checkboxLoader.classList.add("checkbox-loader")
 checkboxLoader.alt = "checkbox loader"
 
-console.log(checkboxLoader)
+// getting the list wrapper for the list accordion
+const listsAccordion = document.querySelectorAll(".setup-guide-content")
 
-emptyCheckbox.addEventListener("click", function(event) {
-    // console.log(event.target)
-    if(event.target.className == "checkbox empty") {
-        emptyCheckbox.style.display = "none"
-        checkboxLoader.classList.add("active")
-        emptyCheckbox.parentElement.appendChild(checkboxLoader)
+// adjusting the progress bar based on if checked or not 
+let progressCount = document.querySelector(".progress-count")
+let count = document.querySelector(".count").textContent
+// console.log(progressCount)
+// let count = 0
 
-        setTimeout(function () {
-            // Remove the loader image and show the checked checkbox
-            checkboxLoader.remove();
-            event.target.nextElementSibling.classList.add("active")
-        }, 500);
-        
-    }
+emptyCheckboxes.forEach(emptyCheckbox => {
+    // console.log(emptyCheckbox)
+    emptyCheckbox.addEventListener("click", function(event) {
+        // console.log(event.target)
+        if(event.target.className == "checkbox empty") {
+            emptyCheckbox.style.display = "none"
+            checkboxLoader.classList.add("active")
+            emptyCheckbox.parentElement.appendChild(checkboxLoader)
+    
+            setTimeout(function () {
+                // Remove the loader image and show the checked checkbox
+                checkboxLoader.remove();
+                event.target.nextElementSibling.classList.add("active")
+    
+                count++
+                console.log(count)
+                progressCount.textContent = `${count} / 5 completed`
+                
+    
+                listsAccordion.forEach((listAccordion, index) => {
+                    if(index == 0) {
+                        emptyCheckbox.parentElement.parentElement.parentElement.classList.add("active")
+                    }
+
+                    listsAccordion.forEach(list => {
+                        if(list !== listAccordion) {
+                            list.classList.remove("active");
+                        }
+                    })
+
+                    if(listAccordion.classList.contains("active")) {
+                        return
+                    } else {
+                        emptyCheckbox.parentElement.parentElement.parentElement.classList.add("active")
+                        
+                    }
+                })
+
+                
+            }, 500);
+            
+        }
+    })
 })
 
-checkedCheckbox.addEventListener("click", function(event) {
-    console.log(event)
-    if(event.target.className == "checkbox checked active") {
-        event.target.classList.remove("active")
-        emptyCheckbox.style.display = "block"
-    }
+checkedCheckboxes.forEach(checkedCheckbox => {
+    checkedCheckbox.addEventListener("click", function(event) {
+        // console.log(event)
+        if(event.target.className == "checkbox checked active") {
+            event.target.classList.remove("active")
+            event.target.previousElementSibling.style.display = "block"
+    
+            count-- 
+            progressCount.textContent = `${count} / 5 completed`
+            checkedCheckbox.parentElement.parentElement.parentElement.classList.remove("active")
+            
+        }
+    })
 })
+
