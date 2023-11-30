@@ -326,6 +326,11 @@ body {
 
 .setup-guide-content-container {
     margin: 0 8px 16px 8px;
+    
+}
+
+.setup-guide-content-container li {
+    list-style: none;
 }
 
 .setup-guide-content {
