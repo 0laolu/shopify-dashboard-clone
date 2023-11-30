@@ -56,13 +56,17 @@ const listsAccordion = document.querySelectorAll(".setup-guide-content")
 // adjusting the progress bar based on if checked or not 
 let progressCount = document.querySelector(".progress-count")
 let count = document.querySelector(".count").textContent
-// console.log(progressCount)
-// let count = 0
+
+// progress bar 
+let progressBar = document.querySelector(".progress-bar")
+console.log(progressBar)
+let progressValue = 0
 
 emptyCheckboxes.forEach(emptyCheckbox => {
     // console.log(emptyCheckbox)
     emptyCheckbox.addEventListener("click", function(event) {
         // console.log(event.target)
+        
         if(event.target.className == "checkbox empty") {
             emptyCheckbox.style.display = "none"
             checkboxLoader.classList.add("active")
@@ -72,6 +76,8 @@ emptyCheckboxes.forEach(emptyCheckbox => {
                 // Remove the loader image and show the checked checkbox
                 checkboxLoader.remove();
                 event.target.nextElementSibling.classList.add("active")
+                progressValue += 20
+                progressBar.style.width = `${progressValue}%`
     
                 count++
                 console.log(count)
@@ -110,9 +116,16 @@ checkedCheckboxes.forEach(checkedCheckbox => {
         if(event.target.className == "checkbox checked active") {
             event.target.classList.remove("active")
             event.target.previousElementSibling.style.display = "block"
+
+            progressValue -= 20
+            progressBar.style.width = `${progressValue}%`
     
             count-- 
-            progressCount.textContent = `${count} / 5 completed`
+            if(count < 0) {
+                progressCount.textContent = `0 / 5 completed`
+            } else {
+                progressCount.textContent = `${count} / 5 completed`
+            }
             checkedCheckbox.parentElement.parentElement.parentElement.classList.remove("active")
             
         }
