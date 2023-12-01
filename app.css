@@ -453,7 +453,8 @@ body {
     /* display: block; */
 }
 
-.list-btn {
+.list-btn,
+.add-product-btn {
     background-color: #404040;
     color: #F6F3F6;
     font-size: 12px;
@@ -555,6 +556,10 @@ body {
     }
 
     .userInfo-wrapper p {
+        display: none;
+    }
+
+    .list-image-container {
         display: none;
     }
 
