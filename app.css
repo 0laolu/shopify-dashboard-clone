@@ -425,7 +425,7 @@ body {
 .list-content-wrapper {
     display: flex;
     justify-content: space-between;
-    margin-left: 32px;
+    margin-left: 40px;
     /* padding-top: 16px; */
     position: relative;
     height: 0;
@@ -468,12 +468,23 @@ body {
     box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333, 0px 2px 0px 0px #000;
 }
 
-.list-btn:hover {
+.list-btn:hover,
+.add-product-btn:hover {
     background-color: #2A2A2A;
 }
 
-.list-btn:focus {
+.list-btn:focus, 
+.add-product-btn:focus {
     box-shadow: 0px 0px 0px 2px #005BD3, 0px 0px 0px 3px #FFF, 0px 0px 0px 1.5px #333;
+}
+
+.import-product-btn {
+    background-color: transparent;
+    color: #323232;
+    font-weight: 600;
+    margin-left: 16px;
+    border: none;
+    outline: none;
 }
 
 
